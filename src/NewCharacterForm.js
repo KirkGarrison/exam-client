@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
+
 export default class NewCharacterForm extends Component {
 
-  handleSubmit = () => {
-    // takes info from the form and uses it to create a new character
+  handleSubmit = (e) => {
+    const name = e.target.name.value;
+    const birth_year = e.target.birth_year.value;
+    const height = e.target.height.value;
+    const eye_color = e.target.eye_color.value;
+    const hair_color = e.target.hair_color.value;
+    const notes = e.target.notes.value;
+    this.props.postCharacters({name, birth_year, height, eye_color, hair_color, notes});
   }
   
   render() {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UpdateForm from './UpdateForm.js';
 
+
 export default class SingleCharacter extends Component {
 
   constructor(props) {
@@ -34,9 +35,9 @@ export default class SingleCharacter extends Component {
           <li>eye color: {this.props.character.eye_color}</li>
           <li>notes: {this.props.character.notes}</li>
         </ul>
-        <button>add new notes</button>
-        <button>delete character</button>
-        <UpdateForm showForm={this.state.showForm} closeForm={this.closeForm}/>
+        <button onClick={(this.openForm)}>Add new notes</button>
+        <button onClick={() => this.props.deleteCharacters(this.props.character._id)}>Delete character</button>
+        <UpdateForm showForm={this.state.showForm} closeForm={this.closeForm} putCharacters={this.props.putCharacters} character={this.props.character}/>
       </div>
     )
   }

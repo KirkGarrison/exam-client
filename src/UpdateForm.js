@@ -6,7 +6,19 @@ import Form from 'react-bootstrap/Form'
 export default class UpdateForm extends Component {
   // this modal should take notes about the character and update the character with the notes... you can rework this component if you want to, just get it to work.
 
-  handleClick = () => {
+  constructor(props) {
+    super(props);
+    this.state = {
+    character: this.props.character
+  }
+}
+
+
+  handleClick = (e) => {
+    const Newnotes = e.target.notes.value;
+    this.setState ({ Newnotes: this.props.character._id.notes})
+    this.props.putCharacters(this.props.character._id.notes, Newnotes);
+    this.props.closeForm();
     // this should update your character with the notes
   }
   render() {
